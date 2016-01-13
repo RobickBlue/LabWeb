@@ -1,2 +1,2 @@
 # LabWeb
-Projecto final de laboratorio web.
+Proyecto final de laboratorio web.
