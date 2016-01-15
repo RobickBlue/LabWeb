@@ -5,7 +5,7 @@ if(!isset($_SESSION))
 {
     session_start();
 }
-$Beans = Bean::getInstance();
+$Beans = bean::getInstance();
 if (isset($_POST['usuari']) && isset($_POST['contrasenya'])) {
     if ($Beans->validaUsuari($_POST['usuari'], $_POST['contrasenya']) === true) {
         $Beans->setUsuari($_POST['usuari']);

@@ -5,7 +5,7 @@ if(!isset($_SESSION))
     session_start();
 }
 
-class ex4BBDD {
+class conexion {
     private $dbhost = "localhost";  // host
     private $dbuser = "root";  // usuario
     private $dbpass = "";  // password
