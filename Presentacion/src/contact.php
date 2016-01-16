@@ -21,16 +21,32 @@ if(isset($_POST['enviar'])){
 <!DOCTYPE html>
 <head>
     <title>Form submission</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="..\css\estilos.css">
 </head>
 <body>
 
-<form action="" method="post">
-    First Name: <input type="text" name="nombre" required><br>
-    Last Name: <input type="text" name="apellido"><br>
-    Email: <input type="text" name="email" required><br>
-    Message:<br><textarea rows="5" name="mensaje" cols="30" required></textarea><br>
-    <input type="submit" name="enviar" value="Enviar">
-</form>
+  <header>
+  <?php include_once '_header.php'; ?>
+  </header>
 
-</body>
+  <nav>
+  <?php include_once '_nav.php'; ?>
+  </nav>
+
+  <form action="" method="post" id="contacta">
+      First Name: <input type="text" name="nombre" required><br>
+      Last Name: <input type="text" name="apellido"><br>
+      Email: <input type="text" name="email" required><br>
+      Message:<br><textarea rows="5" name="mensaje" cols="30" required></textarea><br>
+      <input type="submit" name="enviar" value="Enviar">
+  </form>
+
+  <footer>
+  <?php include_once '_footer.php'; ?>
+  </footer>
+
+  </body>
 </html>

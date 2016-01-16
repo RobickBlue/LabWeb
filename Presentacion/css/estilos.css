@@ -190,6 +190,21 @@ nav li>ul>li{
   margin-bottom: 20px;
 }
 
+#contacta{
+  position: relative;
+  margin-bottom:110px;
+
+  width: 340px;
+  height: 280px;
+  padding-left: 50px;
+  padding-top: 20px;
+  padding-bottom: 0px;
+  top: 180px;
+  margin-left: 25%;
+  border: 2px solid black;
+  background-color: white;
+}
+
 section {
   margin-bottom:50px;
   width: 100%;

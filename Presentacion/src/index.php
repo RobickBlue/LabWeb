@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>CompoTronics</title>
+    <title>CompTronics</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
@@ -14,49 +14,13 @@
 
 
   <body>
-      <header>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-5" id="logo"><img src="..\img\logo4.png" width="30%" height="30%"><h2> CompTronics</h2></div>
-            <div class="col-md-5" id="buscador">
-              <div id="buscar">
-                  <form id="searchform">
-                    <input type="text" placeholder="Buscar aquí..." required>
-                    <button type="submit">Buscar</button>
-                  </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+    <header>
+    <?php include_once '_header.php'; ?>
+    </header>
 
-      <nav>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-5" id="productos">
-              <ul>
-                <li>Inicio</li>
-                <li id="produc">Productos
-                  <ul id="desp" style="display: none;">
-                    <li>Arduino</li>
-                    <li>BeagleBone</li>
-                    <li>Raspberry Pi</li>
-                    <li>Sensores</li>
-                  </ul>
-                </li>
-            </ul>
-          </div>
-          <div class="col-md-5" id="cuenta">
-            <ul>
-              <li>Registrarme</li>
-              <li>Mi cuenta</li>
-              <li><img src="..\img\carrito.png" width="30%" height="30%">Cesta</li>
-          </ul>
-        </div>
-          </div>
-          </div>
-        </div>
-      </nav>
+    <nav>
+    <?php include_once '_nav.php'; ?> 
+    </nav>
 
         <div id="wrapper">
       <section>
@@ -69,18 +33,8 @@
           </div>
         <div>
       </section>
-
-
       <footer>
-        <div class="container">
-          <div class="row" id="footer">
-            <div class="col-md-2">Inicio</div>
-            <div class="col-md-2">Contacto</div>
-            <div class="col-md-2">Aviso legal</div>
-            <div class="col-md-2">Condiciones</div>
-            <div class="col-md-3">Sobre nosotros</div>
-          </div>
-        <div>
+      <?php include_once '_footer.php'; ?>
       </footer>
         </div>
       </body>
