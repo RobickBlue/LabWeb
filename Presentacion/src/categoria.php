@@ -8,16 +8,17 @@
 
     $Bean = bean::getInstance();
     if (isset($_GET['categoria'])) {
-        while ($productos = $Bean->getProductos( $_GET['categoria'])) {
-            $id = $productos['id'];
+        echo 'hola id= '.$_GET['categoria'];
+        while ($productos = $Bean->getProductos($_GET['categoria'])) {
+            $id = $productos['idcategoria'];
             $imagen = $productos['imagen'];
             $nombre = $productos['nombre'];
             $precio = $productos['precio'];
     ?>
     <div class="producto">;
         <img src="<?php echo $imagen ?>">;
-        <a href="producto.php?id=<?php echo $id ?>"><?php echo $nombre ?></a>;
-        <div class="precio"><?php echo $precio ?></div>
+        <a href="producto.php?id=<?php echo $id; ?>"><?php echo $nombre; ?></a>;
+        <div class="precio"><?php echo $precio; ?></div>
     </div>;
     <?php
         }

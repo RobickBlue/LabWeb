@@ -62,11 +62,11 @@ class conexion {
     }
 
     public function getProductos($categoria) {
-        return $this->consulta("select * from producto where categoria='".$categoria."'");
+        return $this->consulta("select * from producto where idcategoria=".$categoria);
     }
 
     public function getProducto($producto) {
-        return $this->consulta("select * from producto where id='".$producto."'");
+        return $this->consulta("select * from producto where idproducto='".$producto."'");
     }
 
     public function desconecta(){
