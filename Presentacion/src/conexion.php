@@ -14,7 +14,7 @@ class conexion {
 
     private function __construct(){
         $this->conecta();
-        mysqli_query($this::conn,"SET NAMES 'utf8'");
+        mysqli_query($this->conn,"SET NAMES 'utf8'");
     }
 
     public static function getInstance(){
@@ -24,7 +24,7 @@ class conexion {
         return self::$conn;
     }
     public function conecta(){
-        $this::conn = mysqli_connect($this->dbhost, $this->dbuser, $this->dbpass,$this->dbname);
+        $this->conn = mysqli_connect($this->dbhost, $this->dbuser, $this->dbpass,$this->dbname);
         if (mysqli_connect_errno()) {
             die('Error al conectar con mysql');
         }
@@ -33,7 +33,7 @@ class conexion {
     public function consulta($query){
         $resultado = array();
 
-        $result = mysqli_query($this::conn,$query);
+        $result = mysqli_query($this->conn,$query);
         if (!$result) {
             die('Error query BD:' . mysqli_error());
         }else{
