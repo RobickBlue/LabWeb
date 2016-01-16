@@ -18,4 +18,16 @@ else if (isset($_POST['id_categoria'])) {
     //$Beans-> setCategoria($_POST['id_categoria']);
     header('Location: productos.php?categoria='.$_POST['id_categoria'].'');
 }
+else if (isset($_POST['id_producto'])) {
+
+}
+else if (isset($_POST['articulo'])) {
+    $Beans->insertaProdCarrito($_POST['articulo']);
+}
+else if (isset($_POST['gestionCarrito'])) {
+    header('Location: carrito.php');
+}
+else if (isset($_POST['registro'])) {
+    header('Location: registro.php');
+}
 ?>
