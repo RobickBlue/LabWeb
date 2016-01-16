@@ -1,5 +1,5 @@
 <?php
-require 'Bean.php';
+require 'bean.php';
 header("Content-Type: text/html;charset=utf-8");
 if(!isset($_SESSION))
 {

@@ -1,4 +1,4 @@
-<?php include("bean.php"); ?>
+<?php require 'bean.php'; ?>
 <html>
     <head>
 
@@ -9,11 +9,13 @@
     $Bean = bean::getInstance();
     if (isset($_GET['categoria'])) {
         echo 'hola id= '.$_GET['categoria'];
-        while ($productos = $Bean->getProductos($_GET['categoria'])) {
-            $id = $productos['idcategoria'];
-            $imagen = $productos['imagen'];
-            $nombre = $productos['nombre'];
-            $precio = $productos['precio'];
+        $productos = $Bean->getProductos($_GET['categoria']);
+        //while ($productos = $Bean->getProductos($_GET['categoria'])) {
+         foreach($productos as $producto) {
+            $id = $producto['IDCATEGORIA'];
+            $imagen = $producto['IMAGEN'];
+            $nombre = $producto['NOMBRE'];
+            $precio = $producto['PRECIO'];
     ?>
     <div class="producto">;
         <img src="<?php echo $imagen ?>">;
