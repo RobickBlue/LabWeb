@@ -17,11 +17,11 @@
             $nombre = $producto['NOMBRE'];
             $precio = $producto['PRECIO'];
     ?>
-    <div class="producto">;
-        <img src="<?php echo $imagen ?>">;
-        <a href="producto.php?id=<?php echo $id; ?>"><?php echo $nombre; ?></a>;
+    <div class="producto">
+        <img src="<?php echo $imagen; ?>">
+        <a href="producto.php?id=<?php echo $id; ?>"><?php echo $nombre; ?></a>
         <div class="precio"><?php echo $precio; ?></div>
-    </div>;
+    </div>
     <?php
         }
     }
