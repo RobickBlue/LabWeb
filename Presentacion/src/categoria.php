@@ -12,7 +12,7 @@
         $productos = $Bean->getProductos($_GET['categoria']);
         //while ($productos = $Bean->getProductos($_GET['categoria'])) {
          foreach($productos as $producto) {
-            $id = $producto['IDCATEGORIA'];
+            $id = $producto['IDPRODUCTO'];
             $imagen = $producto['IMAGEN'];
             $nombre = $producto['NOMBRE'];
             $precio = $producto['PRECIO'];
