@@ -31,6 +31,11 @@ class bean{
         return $BD->validaUsuari($usuari, $contrasenya);
     }
 
+    public function getProducto($idProducto) {
+        $BD = conexion::getInstance();
+        return $BD->getProducto($idProducto);
+    }
+
     public function getProductos($idCategoria) {
         $BD = conexion::getInstance();
         return $BD->getProductos($idCategoria);

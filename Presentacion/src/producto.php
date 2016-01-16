@@ -1,20 +1,21 @@
 <?php include("bean.php") ?>
-<?php if (isset($_GET['id_prod'])) { ?>
+<?php if (isset($_GET['id'])) { ?>
 <html>
 <head>
 </head>
     <body>
         <div class="producto">
             <?php
-            $idProd = $_GET['id_prod'];
+            $idProd = $_GET['id'];
             $bean = bean::getInstance();
-            while($bean->getProducto($idProd)){
-                $id=$idProd['id'];
-                $imagen=$idProd['imagen'];
-                $nombre=$idProd['nombre'];
-                $desc=$idProd['descripcion'];
-                $precio=$idProd['precio'];
-                $stock=$idProd['stock'];
+            $productos = $bean->getProducto($idProd);
+            foreach($productos as $producto){
+                $id=$producto['IDPRODUCTO'];
+                $imagen=$producto['IMAGEN'];
+                $nombre=$producto['NOMBRE'];
+                $desc=$producto['DESCRIPCION'];
+                $precio=$producto['PRECIO'];
+                $stock=$producto['STOCK'];
 
                 ?>
                 <h2>Ref. articulo:<?php echo $id?></h2>
