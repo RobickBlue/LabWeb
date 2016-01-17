@@ -59,14 +59,14 @@ else if(isset($_GET['accion']) and strcmp ($_GET['accion'], "signup") == 0){
     $carrito->add($producto);
     header('Location: cesta.php');
 
-} else if (isset($_GET['accion']) and strcmp($_GET['accion'], "cambiaCantidad") == 0){
+} else if (isset($_GET['accion']) and strcmp($_GET['accion'], "modificarCesta") == 0){
     $carrito = new carrito();
-    $carrito->modificar_cantidad($_POST['id'], $_POST['cantidad']);
-
-} else if (isset($_GET['accion']) and strcmp($_GET['accion'], "removeProducto") == 0){
-    $carrito = new carrito();
-    $carrito->remove_producto($_POST['id']);
-
+    if (isset($_POST['Eliminar'])) {
+        $carrito->remove_producto($_POST['id']);
+    } else if (isset($_POST['Modificar'])){
+        $carrito->modificar_cantidad($_POST['id'], $_POST['cantidad']);
+    }
+    header('Location: cesta.php');
 } else if (isset($_GET['accion']) and strcmp($_GET['accion'], "realizarPedido") == 0){
     $carrito = new carrito();
     return $Beans->realizarPedido($carrito->get_content());

@@ -1,6 +1,6 @@
 <?php
 require 'carrito.php';
-session_start();
+//session_start();
 ?>
 <!Doctype html>
 <html>
@@ -39,25 +39,33 @@ session_start();
 
                     $carrito = new carrito();
                     $productos = $carrito->get_content();
-                    if($carro)
+                    if($carrito)
                     {
-                        foreach($carro as $producto)
+                        foreach($productos as $producto)
                         {
-                            echo $producto["id"];
+                            echo "<p>Nombre:".$producto["nombre"]."</p>";
                             echo "<br />";
-                            echo $producto["cantidad"];
+                            echo "<p>Referencia: ".$producto["id"]."</p>";
                             echo "<br />";
-                            echo $producto["precio"];
+                            echo "<p>Precio: ".$producto["precio"]*$producto['cantidad']."</p>";
                             echo "<br />";
-                            echo $producto["nombre"];
-                            echo "<br />";
-                        }
+                    ?>
+                    <form action="controlador.php?accion=modificarCesta" method="post" name="compra">
+                        <input name="id" type="hidden" value="<?php echo $producto['id'] ?>" />
+                        <input name="cantidad" type="number" min="1" value="<?php echo $producto['cantidad'] ?>" />
+                        <input name="Modificar" type="submit" value="Modificar" />
+                        <input name="Eliminar" type="submit" value="Eliminar" />
+                    </form>
+                    <?php
+                    echo "--------------------------";
+                    }
+                        echo "<p>Precio: ".$carrito->precio_total()."</p>";
                     }
                     else {
-                        header('Location: index.php');
+                    header('Location: index.php');
                     }
                     ?>
-            </div>
+                </div>
         </div>
 </div>
 </section>
