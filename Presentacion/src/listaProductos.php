@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!Doctype html>
 <html>
   <head>
@@ -17,7 +20,12 @@
     </header>
 
     <nav>
-    <?php include_once '_nav.php'; ?>
+      <?php
+       if(!isset($_SESSION['valid_user'])){
+          include '_nav.php';
+       }else{
+          include '_navLogin.php';
+       }?>
     </nav>
 
         <div id="wrapper">

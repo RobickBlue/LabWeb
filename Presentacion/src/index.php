@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!Doctype html>
 <html>
   <head>
@@ -11,32 +15,35 @@
     <script src="..\js\funciones.js"></script>
   </head>
 
-
-
   <body>
     <header>
     <?php include_once '_header.php'; ?>
     </header>
 
     <nav>
-    <?php include_once '_nav.php'; ?>
+    <?php
+      if(!isset($_SESSION['valid_user'])){
+         include '_nav.php';
+      }else{
+         include '_navLogin.php';
+      }?>
     </nav>
+      <div id="wrapper">
+         <section>
+            <div class="container" id="section">
+               <div class="row">
+                  <div class="col-md-6" id="arduino"><a href="controlador.php?id_categoria=1"><img src="..\img\arduino.png" width=100% height=100%></a></div>
+                  <div class="col-md-6" id="nanode"><a href="controlador.php?id_categoria=2"><img src="..\img\nanode.png" width=100% height=100%></a></div>
+                  <div class="col-md-6" id="beagle"><a href="controlador.php?id_categoria=3"><img src="..\img\beaglebone.png" width=100% height=100%></a></div>
+                  <div class="col-md-6" id="rasp"><a href="controlador.php?id_categoria=4"><img src="..\img\raspberry.png" width=100% height=100%></a></div>
+               </div>
+            <div>
+         </section>
 
-        <div id="wrapper">
-      <section>
-        <div class="container" id="section">
-           <div class="row">
-             <div class="col-md-6" id="arduino"><a href="controlador.php?id_categoria=1"><img src="..\img\arduino.png" width=100% height=100%></a></div>
-             <div class="col-md-6" id="nanode"><a href="controlador.php?id_categoria=2"><img src="..\img\nanode.png" width=100% height=100%></a></div>
-             <div class="col-md-6" id="beagle"><a href="controlador.php?id_categoria=3"><img src="..\img\beaglebone.png" width=100% height=100%></a></div>
-             <div class="col-md-6" id="rasp"><a href="controlador.php?id_categoria=4"><img src="..\img\raspberry.png" width=100% height=100%></a></div>
-           </div>
-
-        <div>
-      </section>
-      <footer>
+   <footer>
       <?php include_once '_footer.php'; ?>
-      </footer>
-        </div>
-      </body>
+   </footer>
+
+</div>
+</body>
 </html>

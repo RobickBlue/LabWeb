@@ -48,7 +48,7 @@ class conexion {
     }
 
     public function validaUsuari($usuari, $contrasenya){
-        $result = mysqli_query($this->conn,"select * from usuaris where nom = '".$usuari."' and contrasenya = '".$contrasenya."'");
+        $result = mysqli_query($this->conn,"select * from usuario where idusuario = '".$usuari."' and password = '".$contrasenya."'");
         if (!$result) {
             die('Error query BD:' . mysqli_error());
         }else{
@@ -75,7 +75,7 @@ class conexion {
     }
 
     public function registarUsuario($nom, $apell, $usuari, $contrasenya){
-        $result = mysqli_query($this->conn,"insert into usuaris values ('".$nom."','".$apell."','".$usuari."' ,  '".$contrasenya."')");
+        $result = mysqli_query($this->conn,"insert into usuario (nombre, apellido,idusuario,password) values ('".$nom."','".$apell."','".$usuari."' ,  '".$contrasenya."')");
     }
 }
 ?>
