@@ -50,7 +50,7 @@ class carrito
                 //comprobamos si este producto ya estaba en el
                 //carrito para actualizar el producto o insertar
                 //un nuevo producto
-                if($row["unique_id"] === $articulo['id'])
+                if($row["id"] === $articulo['id'])
                 {
                     //si ya estaba sumamos la cantidad
                     $articulo["cantidad"] = $row["cantidad"] + $articulo["cantidad"];
@@ -209,7 +209,7 @@ class carrito
             {
                 //comprobamos si este producto ya estaba en el
                 //carrito para actualizar el producto
-                if($row["unique_id"] === $id)
+                if($row["id"] === $id)
                 {
                     //si ya estaba sumamos la cantidad
                     $producto = $row;

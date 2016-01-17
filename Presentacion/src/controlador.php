@@ -57,6 +57,7 @@ else if(isset($_GET['accion']) and strcmp ($_GET['accion'], "signup") == 0){
         "nombre"		=>		$_POST['nombre']
     );
     $carrito->add($producto);
+    header('Location: cesta.php');
 
 } else if (isset($_GET['accion']) and strcmp($_GET['accion'], "cambiaCantidad") == 0){
     $carrito = new carrito();

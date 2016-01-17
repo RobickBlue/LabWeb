@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!Doctype html>
 <html>
 <head>
@@ -51,12 +54,11 @@
                <p class="h2">Ref. articulo:<?php echo $id?></p>
                <p class="h2"><?php echo $nombre?></p>
                <p class="precio" ><strong>Precio:</strong><?php echo $precio?> €</p>
-                <form action="carrito.php" method="post" name="compra">
-                   <input name="id_txt" type="hidden" value="<?php echo $id ?>" />
+                <form action="controlador.php?accion=addProducto" method="post" name="compra">
+                   <input name="id" type="hidden" value="<?php echo $id ?>" />
                    <input name="nombre" type="hidden" value="<?php echo $nombre ?>" />
                    <input name="precio" type="hidden" value="<?php echo $precio ?>" />
-                   <input name="cantidad" type="hidden" value="1" />
-                   <input name="enStock" type="hidden" value="<?php echo $stock ?>" />
+                   <input name="cantidad" type="number" min="1" value="1" />
                    <?php if ($stock>0){?>
                      <input name="Comprar" type="submit" value="Añadir al carrito" />
                    <?php }
