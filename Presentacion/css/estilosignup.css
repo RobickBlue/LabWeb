@@ -1,0 +1,84 @@
+
+
+input {
+	font: .75em/1em Arial, Helvetica, sans-serif
+}
+
+
+ label {
+	margin: 0;
+	padding: 0;
+	line-height: 2em
+}
+
+.cont {
+	width: 500px;
+	height: 500px;
+	border: 1px solid #d9d9d9;
+	border-bottom-color: #b2b2b2;
+	border-radius: 10px 10px 10px 10px;
+	box-shadow: 0 0 1em rgba(0, 0, 0, .1);
+	background: #fff;
+	padding: 1.5em 8em 0;
+   margin-bottom: 50px;
+}
+
+.cont label{
+	font-size: 1.083em;
+	font-weight: 700;
+	color: #666;
+	display: block
+}
+
+.cont h2{
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+.cont input{
+	color: #111;
+	background: #f2f2f2;
+	border: 1px solid #b2b2b2;
+	border-top-color: #808080;
+	font-weight: bold;
+	font-size: 1.166em;
+	padding: .5em;
+	border-radius: .25em;
+	margin-bottom: .75em;
+	min-width: 16.6em;
+	box-shadow: inset 0 0 1em #ddd
+}
+
+.cont input:hover {
+	border-color: #007bc0;
+	background: #fdfdfd;
+}
+
+.cont input:focus {
+	background: #AAA;
+	border-color: #007bc0;
+	box-shadow: none
+}
+
+.cont .button{
+	float: right;
+	cursor: pointer;
+	height: 30px;
+	width: 150px;
+	font-size:15px;
+	color: #333;
+	outline: 0;
+	background: #999;
+	border-radius: 3px;
+	margin-top: 20px;
+}
+.cont .button:hover{
+  color: #fff;
+  background: #333;
+}
+
+.cont .button:active,
+.cont .button:focus{
+  color: #fff;
+  background: #555;
+}

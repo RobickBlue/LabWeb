@@ -1,13 +1,11 @@
-h1, h2 {
-	font-family: 'Montserrat', sans-serif;
-	text-align: left;
-}
+
 
 input {
 	font: .75em/1em Arial, Helvetica, sans-serif
 }
 
-h2, label {
+
+ label {
 	margin: 0;
 	padding: 0;
 	line-height: 2em

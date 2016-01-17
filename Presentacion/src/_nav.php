@@ -15,7 +15,7 @@
   </div>
   <div class="col-md-5" id="cuenta">
     <ul>
-      <li>Registrarme</li>
+      <li id="signup">Registrarme</li>
       <li id="login">Mi cuenta</li>
       <li><img src="..\img\carrito.png" width="30%" height="30%">Cesta</li>
   </ul>

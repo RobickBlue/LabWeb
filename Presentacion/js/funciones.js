@@ -16,6 +16,9 @@ $(document).ready(function(){
     $("#login").click(function(){
         location.href="login.php";
   });
+  $("#signup").click(function(){
+     location.href="signup.php";
+});
 });
 
 function categoria(categoria){
