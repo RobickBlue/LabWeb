@@ -13,7 +13,8 @@ if(isset($_POST['enviar'])){
     $headers2 = "De:" . $destinatario;
     mail($destinatario,$tema,$mensaje,$headers);
     mail($remitente,$tema_remitente,$mensaje2,$headers2); // envia una copia al remitente
-    echo "Mensaje enviado. Gracias " . $nombre . ", le contactaremos en breve.";
+    //echo "Mensaje enviado. Gracias " . $nombre . ", le contactaremos en breve.";
+
     // You can also use header('Location: thank_you.php'); to redirect to another page.
 }
 ?>
@@ -33,16 +34,38 @@ if(isset($_POST['enviar'])){
   </header>
 
   <nav>
-  <?php include_once '_nav.php'; ?>
+    <?php
+      if(!isset($_SESSION['valid_user'])){
+         include '_nav.php';
+      }else{
+         include '_navLogin.php';
+      }?>
   </nav>
 
-  <form action="" method="post" id="contacta">
-      First Name: <input type="text" name="nombre" required><br>
-      Last Name: <input type="text" name="apellido"><br>
-      Email: <input type="text" name="email" required><br>
-      Message:<br><textarea rows="5" name="mensaje" cols="30" required></textarea><br>
-      <input type="submit" name="enviar" value="Enviar">
-  </form>
+  <div id="wrapper">
+     <div class="container">
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+             <div class="cont">
+               <form action="" method="post">
+                 First Name: <input type="text" name="nombre" required><br>
+                 Last Name: <input type="text" name="apellido"><br>
+                 Email: <input type="text" name="email" required><br>
+                 Message:<br><textarea rows="5" name="mensaje" cols="30" required></textarea><br>
+                 <input type="submit" name="enviar" value="Enviar">
+
+                 <?php if(isset($_POST['enviar'])){
+                   echo "\nMensaje enviado. Gracias " . $nombre . ", le contactaremos en breve.";
+                 } ?>
+               </form>
+             </div>
+           </div>
+           <div class="col-md-3"></div>
+         </div>
+       </div>
+
+
 
   <footer>
   <?php include_once '_footer.php'; ?>
