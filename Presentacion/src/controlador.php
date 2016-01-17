@@ -10,7 +10,7 @@ $Beans = bean::getInstance();
 
 if (isset($_GET['id_categoria'])) {
     //$Beans-> setCategoria($_POST['id_categoria']);
-    header('Location: categoria.php?categoria='.$_GET['id_categoria'].'');
+    header('Location: listaProductos.php?categoria='.$_GET['id_categoria'].'');
 }
 else if (isset($_POST['id_producto'])) {
 
@@ -26,20 +26,36 @@ else if (isset($_POST['registro'])) {
 }
 else if(isset($_GET['accion']) and strcmp ($_GET['accion'], "signup") == 0){
    $Beans->registarUsuario($_POST['nombre'],$_POST['apellido'],$_POST['usuario'],$_POST['password']);
-   $Beans->setUsuari($_POST['usuario']);
+
    header('Location: index.php');
 
 }else if(isset($_GET['accion']) and strcmp ($_GET['accion'], "login") == 0){
-   if ($Beans->validaUsuari($_POST['usuario'], $_POST['password']) === true) {
-      $Beans->setUsuari($_POST['usuario']);
+   $dadesUsuario=$Beans->validaUsuari($_POST['usuario'], $_POST['password']);
+   if ($dadesUsuario) {
+      $Beans->setUsuari($dadesUsuario);
    }else{
    }
    header('Location: index.php');
 
+}else if(isset($_GET['accion']) and strcmp ($_GET['accion'], "config") == 0){
+   if(isset($_POST['eliminar'])){
+      $Beans->eliminarUsuario($_SESSION['valid_user']);
+      eliminarSesion();
+   }else if(isset($_POST['modificar'])){
+      $Beans->modificarUsuario($_POST['nombre'],$_POST['apellido'],$_SESSION['valid_user'],$_POST['password']);
+      header('Location: index.php');
+   }
 }else if(isset($_GET['accion']) and strcmp ($_GET['accion'], "logout") == 0){
-     Unset($_SESSION['valid_user']);
-     Session_destroy();
-     header('Location: index.php');
+    eliminarSesion();
+}
+
+function eliminarSesion(){
+   Unset($_SESSION['valid_user']);
+   Unset($_SESSION['password']);
+   Unset($_SESSION['nombre']);
+   Unset($_SESSION['apellido']);
+   Session_destroy();
+   header('Location: index.php');
 }
 
 ?>

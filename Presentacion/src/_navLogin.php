@@ -1,4 +1,3 @@
-<?php include("bean.php") ?>
 <div class="container">
   <div class="row">
     <div class="col-md-5" id="productos">
@@ -23,7 +22,7 @@
     <ul>
       <li id="cuentaok">Mi cuenta
          <ul id="despcuenta" style="display: none;">
-           <a href="controlador.php?accion=config"><li >Config</li></a>
+           <a href="configUsuario.php"><li >Config</li></a>
            <a href="controlador.php?accion=logout"><li >Logout</li></a>
          </ul>
       </li>

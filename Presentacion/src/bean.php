@@ -18,8 +18,11 @@ class bean{
         return self::$conn;
     }
 
-    public function setUsuari($value) {
-        $_SESSION['valid_user'] = $value;
+    public function setUsuari($row) {
+        $_SESSION['valid_user'] = $row['IDUSUARIO'];
+        $_SESSION['nombre'] = $row['NOMBRE'];
+        $_SESSION['apellido'] = $row['APELLIDO'];
+        $_SESSION['password'] = $row['PASSWORD'];
     }
 
     public function getUsuari() {
@@ -50,5 +53,16 @@ class bean{
       $BD = conexion::getInstance();
       $BD->registarUsuario($nom, $apellido, $user, $pw);
    }
+
+   public function eliminarUsuario($user){
+     $BD = conexion::getInstance();
+     $BD->eliminarUsuario($user);
+  }
+
+  public function modificarUsuario($nom, $apellido, $user, $pw){
+    $BD = conexion::getInstance();
+    $BD->modificarUsuario($nom, $apellido, $user, $pw);
+  }
+
 }
 ?>

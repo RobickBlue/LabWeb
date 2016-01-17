@@ -47,15 +47,26 @@ class conexion {
         return $resultado;
     }
 
+    public function modificar($query){
+
+      $result = mysqli_query($this->conn,$query);
+      if (!$result) {
+           die('Error query BD:' . mysqli_error());
+      }
+  }
+
     public function validaUsuari($usuari, $contrasenya){
+      $resultado = array();
         $result = mysqli_query($this->conn,"select * from usuario where idusuario = '".$usuari."' and password = '".$contrasenya."'");
         if (!$result) {
             die('Error query BD:' . mysqli_error());
         }else{
             $num_rows = mysqli_num_rows($result);
-            $retorn = ($num_rows > 0 ? true : false);
+            if($num_rows > 0){
+              $row = mysqli_fetch_assoc($result);
+            }
         }
-        return $retorn;
+       return $row;
     }
 
     public function getCategorias() {
@@ -76,6 +87,21 @@ class conexion {
 
     public function registarUsuario($nom, $apell, $usuari, $contrasenya){
         $result = mysqli_query($this->conn,"insert into usuario (nombre, apellido,idusuario,password) values ('".$nom."','".$apell."','".$usuari."' ,  '".$contrasenya."')");
+      $_SESSION['valid_user'] = $usuari;
+      $_SESSION['nombre'] = $nom;
+      $_SESSION['apellido'] = $apell;
+      $_SESSION['password'] = $contrasenya;
     }
+
+    public function eliminarUsuario($user){
+     return $this->consulta("delete from usuario where idusuario='".$user."'");
+  }
+  public function modificarUsuario($nom, $apellido, $user, $pw){
+    $this->modificar("update usuario set nombre='".$nom."', apellido='".$apellido."', password='".$pw."' where idusuario='".$user."'");
+    $_SESSION['valid_user'] = $user;
+    $_SESSION['nombre'] = $nom;
+    $_SESSION['apellido'] = $apellido;
+    $_SESSION['password'] = $pw;
+  }
 }
 ?>

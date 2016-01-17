@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $("#produc").on({ //Menu desplegable
+    $("#produc").on({
         mouseenter: function(){
             $("#desp").css("display", "block");
         },
@@ -9,6 +9,17 @@ $(document).ready(function(){
         }
     });
 
+    $("#cuentaok").on({
+      mouseenter: function(){
+           $("#despcuenta").css("display", "block");
+      },
+      mouseleave: function(){
+           $("#despcuenta").css("display", "none");
+      }
+  });
+  $("#logout").click(function(){
+       location.href="controlador.php?accion='logout'";
+  });
 
     $("#index").click(function(){
          location.href="index.php";
