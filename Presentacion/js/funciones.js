@@ -27,9 +27,19 @@ $(document).ready(function(){
     $("#login").click(function(){
         location.href="login.php";
   });
+
+  $("#cesta").click(function(){
+     location.href="cesta.php";
+   });
+
   $("#signup").click(function(){
      location.href="signup.php";
-});
+   });
+
+  $("#contacto").click(function(){
+   location.href="contact.php";
+  });
+
 });
 
 function categoria(categoria){
