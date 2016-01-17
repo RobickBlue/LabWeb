@@ -1,5 +1,6 @@
 <?php
 require 'bean.php';
+require 'carrito.php';
 header("Content-Type: text/html;charset=utf-8");
 if(!isset($_SESSION))
 {
@@ -47,6 +48,29 @@ else if(isset($_GET['accion']) and strcmp ($_GET['accion'], "signup") == 0){
    }
 }else if(isset($_GET['accion']) and strcmp ($_GET['accion'], "logout") == 0){
     eliminarSesion();
+} else if (isset($_GET['accion']) and strcmp($_GET['accion'], "addProducto") == 0){
+    $carrito = new carrito();
+    $producto = array(
+        "id"			=>		$_POST['id'],
+        "cantidad"		=>		$_POST['cantidad'],
+        "precio"		=>		$_POST['precio'],
+        "nombre"		=>		$_POST['nombre']
+    );
+    $carrito->add($producto);
+
+} else if (isset($_GET['accion']) and strcmp($_GET['accion'], "cambiaCantidad") == 0){
+    $carrito = new carrito();
+    $carrito->modificar_cantidad($_POST['id'], $_POST['cantidad']);
+
+} else if (isset($_GET['accion']) and strcmp($_GET['accion'], "removeProducto") == 0){
+    $carrito = new carrito();
+    $carrito->remove_producto($_POST['id']);
+
+} else if (isset($_GET['accion']) and strcmp($_GET['accion'], "realizarPedido") == 0){
+    $carrito = new carrito();
+    return $Beans->realizarPedido($carrito->get_content());
+} else if (isset($_GET['accion']) and strcmp($_GET['accion'], "listarCarrito") == 0){
+    header('Location: cesta.php');
 }
 
 function eliminarSesion(){
@@ -54,6 +78,7 @@ function eliminarSesion(){
    Unset($_SESSION['password']);
    Unset($_SESSION['nombre']);
    Unset($_SESSION['apellido']);
+   Unset($_SESSION['carrito']);
    Session_destroy();
    header('Location: index.php');
 }
