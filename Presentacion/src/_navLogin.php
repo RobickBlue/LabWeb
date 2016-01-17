@@ -27,7 +27,7 @@
            <a href="controlador.php?accion=logout"><li >Logout</li></a>
          </ul>
       </li>
-      <li><img src="..\img\carrito.png" width="30%" height="30%">Cesta</li>
+      <li id="cesta"><img src="..\img\carrito.png" width="30%" height="30%">Cesta</li>
   </ul>
 </div>
   </div>

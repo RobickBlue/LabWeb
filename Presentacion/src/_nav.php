@@ -23,7 +23,7 @@
     <ul>
       <li id="signup">Registrarme</li>
       <li id="login">Mi cuenta</li>
-      <li><img src="..\img\carrito.png" width="30%" height="30%">Cesta</li>
+      <li id="cesta"><img src="..\img\carrito.png" width="30%" height="30%">Cesta</li>
   </ul>
     </div>
   </div>

@@ -40,31 +40,36 @@ if(!isset($_SESSION))
             <div class="container">
                 <div class="row">
                     <?php
-
                     $carrito = new carrito();
                     $productos = $carrito->get_content();
-                    if($carrito)
-                    {
-                        foreach($productos as $producto)
-                        {
-                            echo "<p>Nombre:".$producto["nombre"]."</p>";
-                            echo "<br />";
-                            echo "<p>Referencia: ".$producto["id"]."</p>";
-                            echo "<br />";
-                            echo "<p>Precio: ".$producto["precio"]*$producto['cantidad']."</p>";
-                            echo "<br />";
-                            echo "<p>cantidad:".$producto['cantidad']."</p>";
-                            echo "--------------------------";
-                        }
-                        echo "<p>Precio: ".$carrito->precio_total()."</p>";
-                        ?>
-                        <form action="controlador.php?accion=checkout" method="post" name="compra">
-                            <input name="Confirmar" type="submit" value="Confirmar" />
-                        </form>
-                    <?php
+                    if (isset($_GET['error'])){
+                        echo '<p>'.$_GET['error'].'</p>';
                     }
-                    else {
-                        header('Location: index.php');
+                    else{
+                        if($carrito)
+                        {
+                            foreach($productos as $producto)
+                            {
+                                echo "<p>Nombre:".$producto["nombre"]."</p>";
+                                echo "<br />";
+                                echo "<p>Referencia: ".$producto["id"]."</p>";
+                                echo "<br />";
+                                echo "<p>Precio: ".$producto["precio"]*$producto['cantidad']."</p>";
+                                echo "<br />";
+                                echo "<p>cantidad:".$producto['cantidad']."</p>";
+                                echo "--------------------------";
+                            }
+                            echo "<p>Precio: ".$carrito->precio_total()."</p>";
+                            ?>
+                            <form action="controlador.php?accion=checkout" method="post" name="compra">
+                                <span>Dirección de envio: </span><input name="direccion" type="text"/>
+                                <input name="Confirmar" type="submit" value="Confirmar" />
+                            </form>
+                            <?php
+                        }
+                        else {
+                            header('Location: index.php');
+                        }
                     }
                     ?>
                 </div>

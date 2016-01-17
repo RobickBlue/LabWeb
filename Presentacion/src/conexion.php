@@ -105,21 +105,29 @@ class conexion {
     $_SESSION['password'] = $pw;
   }
 
-  public function realizarPedido($cesta){
+  public function realizarPedido($cesta, $direccion){
       $carrito = new carrito();
+      mysqli_query($this->conn, "insert into pedido (IDUSUARIO, FECHA, DIRECCION, PRECIO_FINAL, GASTOS_ENVIO)
+          values ('".$_SESSION['valid_user']."',now(),'".$direccion."','".$carrito->precio_total()."','5.60')");
+      $idpedido = mysqli_insert_id($this->conn);
       foreach($cesta as $producto){
           $result = $this->getProducto($producto['id']);
           foreach($result as $item){
               if ($producto['cantidad'] > $item['STOCK']) {
-                  throw new Exception("La cantidad indicada del producto".$producto['nombre']."es
-                   mayor que la que disponemos en stock!", 1);
+                  $this->consulta("delete from pedido Where IDPEDIDO='".$idpedido."'");
+                  throw new Exception(" La cantidad indicada del producto".$producto['nombre']."es mayor que la que disponemos en stock! ", 1);
               }
           }
-          mysqli_query($this->conn, "insert into pedido (IDUSARIO, FECHA, DIRECCION, PRECIO_FINAL, GASTOS_ENVIO)
-          values ('".$_SESSION['valid_user']."',now(),'calle piruleta 123','".$carrito->precio_total()."','5.60')");
-          mysqli_query($this->conn,"insert into tener (IDPEDIDO, IDPRODUCTO, CANTIDAD)
-          values ('".mysqli_insert_id($this->conn)."','".$producto['id']."','".$producto['cantidad']."')");
+          mysqli_query($this->conn,"insert into tener (idpedido, idproducto, cantidad)
+          values ('".$idpedido."','".$producto['id']."','".$producto['cantidad']."')");
+          $this->descontarStock($producto['id'], $producto['cantidad']);
       }
+      $carrito->destroy();
   }
+
+    private function descontarStock($id, $cantidad)
+    {
+        $this->consulta("UPDATE producto set STOCK=STOCK-".$cantidad." where IDPRODUCTO=".$id);
+    }
 }
 ?>

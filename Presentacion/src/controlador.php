@@ -72,12 +72,17 @@ else if(isset($_GET['accion']) and strcmp ($_GET['accion'], "signup") == 0){
 
 } else if (isset($_GET['accion']) and strcmp($_GET['accion'], "checkout") == 0){
     $carrito = new carrito();
-    try {
-        $Beans->realizarPedido($carrito->get_content());
-        header('Location: index.php');
-    } catch (Exception $e) {
-        header('Location: cesta.php?error='.$e->getMessage().'');
+    if (isset($_POST['direccion']) && trim($_POST['direccion']) != "") {
+        try {
+            $Beans->realizarPedido($carrito->get_content(), $_POST['direccion']);
+            header('Location: index.php');
+        } catch (Exception $e) {
+            header("Location: checkout.php?error=".$e->getMessage());
+        }
+    } else {
+        header("Location: checkout.php?error=La direccion no puede estar vacia");
     }
+
 
 } else if (isset($_GET['accion']) and strcmp($_GET['accion'], "listarCarrito") == 0){
     header('Location: cesta.php');
