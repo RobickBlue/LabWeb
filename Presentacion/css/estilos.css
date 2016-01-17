@@ -9,7 +9,7 @@ body {
 }
 
 img{
-   border-radius: 10px 10px 10px 10px;
+   border-radius: 10px;
 }
 
 header a, header a:hover, header a:link{
@@ -17,6 +17,10 @@ header a, header a:hover, header a:link{
    color: #333;
 }
 
+h2{
+	border-bottom: 1px solid #EEE;
+	box-shadow: 0 0 1em rgba(0, 0, 0, .3);
+}
 
  a,  a:hover,  a:link{
    text-decoration: none;
@@ -239,11 +243,18 @@ footer {
   padding: 30px 0 0 0;
 }
 
-.col-md-2, .col-md-3 {
+.col-md-2 {
   min-height: 30px;
   cursor: pointer;
 }
 
 .col-md-2:hover, .col-md-3:hover{
   color: #EEE;
+}
+
+.imgcategoria{
+   border-radius: 10px;
+   box-shadow: 2px rgba(0,0,0,.8) inset;
+   border: 2px solid #333;
+   background-color: #EEE;
 }

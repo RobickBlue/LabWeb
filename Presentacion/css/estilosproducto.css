@@ -1,0 +1,41 @@
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	max-height: 50px;
+}
+
+.imgproduc{
+   height: 350px;
+   box-shadow: 2px rgba(0,0,0,.8) inset;
+   border: 2px solid #333;
+}
+
+.col-md-8{
+   border-radius: 10px;
+   box-shadow: 2px rgba(0,0,0,.8) inset;
+   height: 350px;
+   background-color: #DDD;
+   margin-top: : 80px;
+   border: 2px solid #333;
+}
+
+.col-md-4{
+height: 350px;
+   margin-top: : 80px;
+}
+
+.h2{
+   font-size: 25px;
+   color: #333;
+}
+
+.precio{
+   margin: 10px 0;
+   font-size: 15px;
+   color: #333;
+}
+
+#descripcion{
+   text-align: justify;:
+}

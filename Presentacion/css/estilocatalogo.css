@@ -1,0 +1,34 @@
+.col-md-3{
+   width: 300px;
+   height: 300px;
+   margin: 40px;
+   background-color: #AAA;
+}
+
+.nomProduc{
+   padding-left: 5px;
+   margin-bottom: 2px;
+   border-radius: 10px;
+   box-shadow: 2px rgba(0,0,0,.8) inset;
+   border: 2px solid #333;
+   background-color: #EEE;
+   color: #333;
+   font-size: 20px;
+}
+
+.imgproduc{
+   box-shadow: 2px rgba(0,0,0,.8) inset;
+   border: 2px solid #333;
+}
+.precio{
+   color: red;
+   font-size: 25px;
+   position: absolute;
+   top: 210px;
+   margin-left: 10px;
+
+}
+
+/*
+require 'bean.php';
+*/
