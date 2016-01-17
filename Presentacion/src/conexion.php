@@ -129,5 +129,10 @@ class conexion {
     {
         $this->consulta("UPDATE producto set STOCK=STOCK-".$cantidad." where IDPRODUCTO=".$id);
     }
+
+    public function buscarProductos($texto)
+    {
+        return $this->consulta("select * from producto where nombre like '%".$texto."%'");
+    }
 }
 ?>

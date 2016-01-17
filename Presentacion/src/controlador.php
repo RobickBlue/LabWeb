@@ -86,6 +86,14 @@ else if(isset($_GET['accion']) and strcmp ($_GET['accion'], "signup") == 0){
 
 } else if (isset($_GET['accion']) and strcmp($_GET['accion'], "listarCarrito") == 0){
     header('Location: cesta.php');
+} else if (isset($_GET['accion']) and strcmp($_GET['accion'], "buscar") == 0) {
+    if (isset($_POST['textBuscar']) && trim($_POST['textBuscar']) != "") {
+        header('Location: resultado.php?q='.$_POST['textBuscar']);
+    } else {
+        header('Location: index.php');
+    }
+} else {
+    header('Location: index.php');
 }
 
 function eliminarSesion(){

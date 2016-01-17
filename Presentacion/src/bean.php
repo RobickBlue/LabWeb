@@ -70,5 +70,10 @@ class bean{
     $BD->realizarPedido($carrito, $direccion);
   }
 
+  public function buscarProductos($texto) {
+    $BD = conexion::getInstance();
+    return $BD->buscarProductos($texto);
+  }
+
 }
 ?>
