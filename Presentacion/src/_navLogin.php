@@ -1,3 +1,4 @@
+<?php include("bean.php") ?>
 <div class="container">
   <div class="row">
     <div class="col-md-5" id="productos">

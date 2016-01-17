@@ -10,7 +10,7 @@ $Beans = bean::getInstance();
 
 if (isset($_GET['id_categoria'])) {
     //$Beans-> setCategoria($_POST['id_categoria']);
-    header('Location: listaProductos.php?categoria='.$_GET['id_categoria'].'');
+    header('Location: categoria.php?categoria='.$_GET['id_categoria'].'');
 }
 else if (isset($_POST['id_producto'])) {
 
