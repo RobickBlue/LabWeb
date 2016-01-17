@@ -19,18 +19,19 @@
     </header>
 
     <nav>
-    <?php include_once '_nav.php'; ?> 
+    <?php include_once '_nav.php'; ?>
     </nav>
 
         <div id="wrapper">
       <section>
-        <div class="container">
-          <div class="row" id="section">
-            <div class="col-md-6" id="arduino"><img src="..\img\arduino.png" width=100% height=100%></div>
-            <div class="col-md-6" id="nanode"><img src="..\img\nanode.png" width=100% height=100%></div>
-            <div class="col-md-6" id="beagle"><img src="..\img\beaglebone.png" width=100% height=100%></div>
-            <div class="col-md-6" id="rasp"><img src="..\img\raspberry.png" width=100% height=100%></div>
-          </div>
+        <div class="container" id="section">
+           <div class="row">
+             <div class="col-md-6" id="arduino"><a href="listaProductos.php?idCatalogo=c1"><img src="..\img\arduino.png" width=100% height=100%></a></div>
+             <div class="col-md-6" id="nanode"><a href="listaProductos.php?idCatalogo=c2"><img src="..\img\nanode.png" width=100% height=100%></a></div>
+             <div class="col-md-6" id="beagle"><a href="listaProductos.php?idCatalogo=c3"><img src="..\img\beaglebone.png" width=100% height=100%></a></div>
+             <div class="col-md-6" id="rasp"><a href="listaProductos.php?idCatalogo=c4"><img src="..\img\raspberry.png" width=100% height=100%></a></div>
+           </div>
+
         <div>
       </section>
       <footer>

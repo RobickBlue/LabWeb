@@ -9,4 +9,15 @@ $(document).ready(function(){
         }
     });
 
+
+    $("#index").click(function(){
+         location.href="index.php";
+    });
+    $("#login").click(function(){
+        location.href="login.php";
+  });
 });
+
+function categoria(categoria){
+   alert(categoria);
+}

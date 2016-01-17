@@ -8,6 +8,28 @@ body {
   background-color: #AAA;
 }
 
+img{
+   border-radius: 10px 10px 10px 10px;
+}
+
+header a, header a:hover, header a:link{
+   text-decoration: none;
+   color: #333;
+}
+
+
+ a,  a:hover,  a:link{
+   text-decoration: none;
+}
+
+nav a {
+   padding: 10px 20px;
+   border: 10px solid red;
+}
+nav ul>li>ul>li{
+   width: 150px;
+}
+
 /* ***** Header ***** */
 
 header, nav {
@@ -21,6 +43,7 @@ header img {
   margin-right: 5px;
 }
 header{
+   color: #333;
   background-color: #AAA;
   height: 120px;
   width: 100%;
@@ -89,7 +112,7 @@ header{
 
 #searchform button:hover{
   color: #fff;
-    background: #333;
+  background: #333;
 }
 
 #searchform button:active,
@@ -161,12 +184,14 @@ nav li{
   border-right: 1px  solid #EEE;
   border-left: 1px  solid #EEE;
   margin: 0; padding: 0;
+  border-radius: 10px 10px 10px 10px;
+
 }
 
 
-nav li:hover{
+nav li:hover,nav a:hover{
   color: #EEE;
-	background: #333;
+  background: #333;
 }
 
 nav li ul{
@@ -182,37 +207,22 @@ nav li>ul>li{
 /* ***** Section ***** */
 #wrapper {
   top: 200px;
-    min-height: 100%;
-    position: relative;
+  min-height: 100%;
+  position: relative;
 }
 
 #arduino, #nanode {
   margin-bottom: 20px;
 }
 
-#contacta{
-  position: relative;
-  margin-bottom:110px;
-
-  width: 340px;
-  height: 280px;
-  padding-left: 50px;
-  padding-top: 20px;
-  padding-bottom: 0px;
-  top: 180px;
-  margin-left: 25%;
-  border: 2px solid black;
-  background-color: white;
-}
-
 section {
   margin-bottom:50px;
+  z-index: -1;
   width: 100%;
   height: 500px%;
 }
 
-section .col-md-6 {
-  z-index: -1;
+section .col-md-6, .col-md-4{
   height: 300px;
 }
 
