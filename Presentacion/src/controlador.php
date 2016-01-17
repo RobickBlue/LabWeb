@@ -14,12 +14,12 @@ if (isset($_POST['usuari']) && isset($_POST['contrasenya'])) {
         header('Location: ');
     }
 }
-else if (isset($_POST['id_categoria'])) {
+else if (isset($_GET['id_categoria'])) {
     //$Beans-> setCategoria($_POST['id_categoria']);
-    header('Location: productos.php?categoria='.$_POST['id_categoria'].'');
+    header('Location: listaProductos.php?categoria='.$_GET['id_categoria'].'');
 }
 else if (isset($_POST['id_producto'])) {
-   
+
 }
 else if (isset($_POST['articulo'])) {
     $Beans->insertaProdCarrito($_POST['articulo']);
@@ -30,4 +30,10 @@ else if (isset($_POST['gestionCarrito'])) {
 else if (isset($_POST['registro'])) {
     header('Location: registro.php');
 }
+else if(isset($_GET['accion'])){
+   $Beans->registarUsuario($_POST['nombre'],$_POST['apellido'],$_POST['usuario'],$_POST['password']);
+   header('Location: index.php');
+
+}
+
 ?>

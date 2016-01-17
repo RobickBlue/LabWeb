@@ -45,5 +45,10 @@ class bean{
         $BD = conexion::getInstance();
         return $BD->getCategorias();
     }
+
+    public function registarUsuario($nom, $apellido, $user, $pw){
+      $BD = conexion::getInstance();
+      $BD->registarUsuario($nom, $apellido, $user, $pw);
+   }
 }
 ?>

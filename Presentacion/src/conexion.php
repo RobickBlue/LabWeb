@@ -10,7 +10,8 @@ class conexion {
     private $dbuser = "root";  // usuario
     private $dbpass = "";  // password
     private $dbname = "tienda";  // base de datos
-    private static $conn;    // identificador de la conexión
+    private  $conn;    // identificador de la conexión
+    private static $instancia;
 
     private function __construct(){
         $this->conecta();
@@ -18,10 +19,10 @@ class conexion {
     }
 
     public static function getInstance(){
-        if (!(self::$conn instanceof self)){
-            self::$conn=new self();
+        if (!(self::$instancia instanceof self)){
+            self::$instancia=new self();
         }
-        return self::$conn;
+        return self::$instancia;
     }
     public function conecta(){
         $this->conn = mysqli_connect($this->dbhost, $this->dbuser, $this->dbpass,$this->dbname);
@@ -71,6 +72,10 @@ class conexion {
 
     public function desconecta(){
         mysqli_close($this->conn);
+    }
+
+    public function registarUsuario($nom, $apell, $usuari, $contrasenya){
+        $result = mysqli_query($this->conn,"insert into usuaris values ('".$nom."','".$apell."','".$usuari."' ,  '".$contrasenya."')");
     }
 }
 ?>

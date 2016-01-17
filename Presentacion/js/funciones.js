@@ -22,5 +22,6 @@ $(document).ready(function(){
 });
 
 function categoria(categoria){
+   location.href="controlador.php?id_categoria="+categoria;
    alert(categoria);
 }

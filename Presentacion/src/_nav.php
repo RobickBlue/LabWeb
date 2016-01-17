@@ -5,10 +5,10 @@
         <li id="index">Inicio</li>
         <li id="produc">Productos
           <ul id="desp" style="display: none;">
-            <li onclick="categoria('c1')">Arduino</li>
-            <li onclick="categoria('c2')">BeagleBone</li>
-            <li onclick="categoria('c3')">Raspberry Pi</li>
-            <li onclick="categoria('c4')">Sensores</li>
+            <a href="controlador.php?id_categoria=1"><li >Arduino</li></a>
+            <a href="controlador.php?id_categoria=2"><li >BeagleBone</li></a>
+            <a href="controlador.php?id_categoria=3"><li >Raspberry Pi</li></a>
+            <a href="controlador.php?id_categoria=4"><li >Sensores</li></a>
           </ul>
         </li>
     </ul>

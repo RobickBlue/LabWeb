@@ -22,10 +22,6 @@ header a, header a:hover, header a:link{
    text-decoration: none;
 }
 
-nav a {
-   padding: 10px 20px;
-   border: 10px solid red;
-}
 nav ul>li>ul>li{
    width: 150px;
 }
@@ -185,9 +181,8 @@ nav li{
   border-left: 1px  solid #EEE;
   margin: 0; padding: 0;
   border-radius: 10px 10px 10px 10px;
-
+  background: #BBB;
 }
-
 
 nav li:hover,nav a:hover{
   color: #EEE;
