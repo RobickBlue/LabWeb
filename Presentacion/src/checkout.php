@@ -1,6 +1,10 @@
 <?php
 require 'carrito.php';
-//session_start();
+if(!isset($_SESSION))
+{
+    session_start();
+}
+
 ?>
 <!Doctype html>
 <html>
@@ -49,35 +53,28 @@ require 'carrito.php';
                             echo "<br />";
                             echo "<p>Precio: ".$producto["precio"]*$producto['cantidad']."</p>";
                             echo "<br />";
-                    ?>
-                    <form action="controlador.php?accion=modificarCesta" method="post" name="compra">
-                        <input name="id" type="hidden" value="<?php echo $producto['id'] ?>" />
-                        <input name="cantidad" type="number" min="1" value="<?php echo $producto['cantidad'] ?>" />
-                        <input name="Modificar" type="submit" value="Modificar" />
-                        <input name="Eliminar" type="submit" value="Eliminar" />
-                    </form>
-                    <?php
-                    echo "--------------------------";
-                    }
+                            echo "<p>cantidad:".$producto['cantidad']."</p>";
+                            echo "--------------------------";
+                        }
                         echo "<p>Precio: ".$carrito->precio_total()."</p>";
                         ?>
-                    <form action="controlador.php?accion=confirmar" method="post" name="compra">
-                        <input name="Confirmar" type="submit" value="Confirmar" />
-                    </form>
+                        <form action="controlador.php?accion=checkout" method="post" name="compra">
+                            <input name="Confirmar" type="submit" value="Confirmar" />
+                        </form>
                     <?php
                     }
                     else {
-                    header('Location: index.php');
+                        header('Location: index.php');
                     }
                     ?>
                 </div>
+            </div>
         </div>
-</div>
-</section>
+    </section>
 
-<footer>
-    <?php include_once '_footer.php'; ?>
-</footer>
+    <footer>
+        <?php include_once '_footer.php'; ?>
+    </footer>
 
 </div>
 </body>

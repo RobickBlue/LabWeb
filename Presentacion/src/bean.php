@@ -64,5 +64,11 @@ class bean{
     $BD->modificarUsuario($nom, $apellido, $user, $pw);
   }
 
+  public function realizarPedido($carrito)
+  {
+    $BD = conexion::getInstance();
+    $BD->realizarPedido($carrito);
+  }
+
 }
 ?>

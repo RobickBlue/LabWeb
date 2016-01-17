@@ -1,6 +1,6 @@
 <?php
 require 'bean.php';
-require 'carrito.php';
+include_once 'carrito.php';
 header("Content-Type: text/html;charset=utf-8");
 if(!isset($_SESSION))
 {
@@ -59,17 +59,26 @@ else if(isset($_GET['accion']) and strcmp ($_GET['accion'], "signup") == 0){
     $carrito->add($producto);
     header('Location: cesta.php');
 
-} else if (isset($_GET['accion']) and strcmp($_GET['accion'], "modificarCesta") == 0){
+} else if (isset($_GET['accion']) and strcmp($_GET['accion'], "modificarCesta") == 0) {
     $carrito = new carrito();
     if (isset($_POST['Eliminar'])) {
         $carrito->remove_producto($_POST['id']);
-    } else if (isset($_POST['Modificar'])){
+    } else if (isset($_POST['Modificar'])) {
         $carrito->modificar_cantidad($_POST['id'], $_POST['cantidad']);
     }
     header('Location: cesta.php');
-} else if (isset($_GET['accion']) and strcmp($_GET['accion'], "realizarPedido") == 0){
+} else if (isset($_GET['accion']) and strcmp($_GET['accion'], "confirmar") == 0){
+    header('Location: checkout.php');
+
+} else if (isset($_GET['accion']) and strcmp($_GET['accion'], "checkout") == 0){
     $carrito = new carrito();
-    return $Beans->realizarPedido($carrito->get_content());
+    try {
+        $Beans->realizarPedido($carrito->get_content());
+        header('Location: index.php');
+    } catch (Exception $e) {
+        header('Location: cesta.php?error='.$e->getMessage().'');
+    }
+
 } else if (isset($_GET['accion']) and strcmp($_GET['accion'], "listarCarrito") == 0){
     header('Location: cesta.php');
 }

@@ -1,5 +1,6 @@
 <?php
 header("Content-Type: text/html;charset=utf-8");
+include_once 'carrito.php';
 if(!isset($_SESSION))
 {
     session_start();
@@ -102,6 +103,23 @@ class conexion {
     $_SESSION['nombre'] = $nom;
     $_SESSION['apellido'] = $apellido;
     $_SESSION['password'] = $pw;
+  }
+
+  public function realizarPedido($cesta){
+      $carrito = new carrito();
+      foreach($cesta as $producto){
+          $result = $this->getProducto($producto['id']);
+          foreach($result as $item){
+              if ($producto['cantidad'] > $item['STOCK']) {
+                  throw new Exception("La cantidad indicada del producto".$producto['nombre']."es
+                   mayor que la que disponemos en stock!", 1);
+              }
+          }
+          mysqli_query($this->conn, "insert into pedido (IDUSARIO, FECHA, DIRECCION, PRECIO_FINAL, GASTOS_ENVIO)
+          values ('".$_SESSION['valid_user']."',now(),'calle piruleta 123','".$carrito->precio_total()."','5.60')");
+          mysqli_query($this->conn,"insert into tener (IDPEDIDO, IDPRODUCTO, CANTIDAD)
+          values ('".mysqli_insert_id($this->conn)."','".$producto['id']."','".$producto['cantidad']."')");
+      }
   }
 }
 ?>
